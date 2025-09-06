@@ -33,6 +33,8 @@ contract W2Ploan{
 
     function deposit()public payable{
         require(msg.value > 0, "Deposit amount must be greater than zero");
+        totalPooledEther += msg.value;
+        lenderDeposits[msg.sender] += msg.value;
         emit Deposited(msg.sender, msg.value);
     }
 
